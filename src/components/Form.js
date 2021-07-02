@@ -1,7 +1,7 @@
 import react from "react";
-const Form = ({ sett, td, std, inputText }) => {
+const Form = ({ sett, td, std, inputText, stat }) => {
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
+    //  console.log(e.target.value);
     sett(e.target.value);
   };
   const TodoHandler = (e) => {
@@ -13,6 +13,10 @@ const Form = ({ sett, td, std, inputText }) => {
       { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
     sett("");
+  };
+  const statusHandler = (e) => {
+    //   e.taget.value gives the status
+    stat(e.target.value);
   };
   return (
     <form>
@@ -26,7 +30,7 @@ const Form = ({ sett, td, std, inputText }) => {
         <i className="fas fa-plus-square"></i>
       </button>
       <div className="select">
-        <select name="todos" className="filter-todo">
+        <select onChange={statusHandler} name="todos" className="filter-todo">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
