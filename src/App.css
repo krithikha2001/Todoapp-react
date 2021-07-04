@@ -12,7 +12,6 @@ body {
 header {
   font-size: 2rem;
 }
-
 header,
 form {
   min-height: 20vh;
